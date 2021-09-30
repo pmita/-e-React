@@ -1,0 +1,52 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/global';
+@import '../../assets/styles/mixins';
+
+.navigationSection{
+    min-height: 10vh;
+    width: 100%;
+    background: $black;
+    color: $white;
+    padding: 0 3rem;
+    @include flex(row, space-between, center);
+    a{
+        flex: 1;
+    }
+}
+
+.navLinks{
+    flex: 1;
+    &.focus{
+        flex: 2;
+    }
+    @include flex(row, flex-end, center);
+    a{
+        color: $white;
+        transition: $transition;
+        &:hover{
+            opacity: 0.5;
+        }
+    }
+    li{
+        padding: 0 1rem;
+    }
+}
+
+.searchSection{
+    input{
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $white;
+        background: $black;
+        color: $white;
+        font-size: $h4;
+        color: $white;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .navigation-section{
+        padding: 0 1rem;
+        @include flex(row, space-between, center);
+    }
+}
