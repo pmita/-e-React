@@ -1,0 +1,8 @@
+// import our css parcels & global styling
+@import './assets/styles/variables';
+@import './assets/styles/global';
+@import './assets/styles/mixins';
+
+.App{
+    background: red;
+}
