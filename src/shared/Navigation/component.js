@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 // import our assets
 import logo from '../../assets/images/crispLogo.png';
