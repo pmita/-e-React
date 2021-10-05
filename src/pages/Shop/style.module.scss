@@ -1,0 +1,53 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/global';
+
+.shopProducts_section{
+    min-height: 100vh;
+    width: 100%;
+    padding: 5rem 1rem;
+    @include flex(row, center, flex-start);
+}
+
+.shopProducts_right{
+    flex: 4;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-auto-rows: minmax(550px, 600px);
+    gap: 1rem;
+}
+
+.shopProducts_left{
+    flex: 1;
+    align-self: stretch;
+    @include flex(column, flex-start, flex-start);
+    border-right: 2px solid $black;
+    margin-right: 1rem;
+    .productsFilters{
+        width: 100%;
+        @include flex(column, flex-start, flex-start);
+        .btn_filter{
+            margin: 1rem 0;
+            padding: 1rem 2rem;
+            outline: none;
+            border: 2px solid $black;
+            background: $white;
+            color: $black;
+            transition: $transition;
+            cursor: pointer;
+            &:hover{
+                color: $white;
+                background: $black;
+            }
+            &.active{
+                border: 2px solid $black;
+                background: $black;
+                color: $white;
+                &:hover{
+                    color: $black;
+                    background: $white;
+                }
+            }
+        }
+    }
+}

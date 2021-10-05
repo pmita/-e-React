@@ -147,7 +147,7 @@ const womenData = [
     {
         title : 'Angels malu zip jeans slim black used',
         price : 139.00,
-        brand : 'COPER',
+        brand : 'COOPER',
         details : 'Cool off this summer in the Mini Ruffle Smocked Tank Top from our very own LA Hearts. This tank features a smocked body, adjustable straps, scoop neckline, ruffled hems, and a cropped fit.',
         advantages : [
             'Smocked body',

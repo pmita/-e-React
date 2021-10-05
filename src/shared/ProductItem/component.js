@@ -25,6 +25,7 @@ const ProductItem = ({
                     );
                 })}
             </ul>
+            <button>Love</button>
         </div>
     );
 }
