@@ -1,9 +1,12 @@
 import React from 'react';
+import Footer from '../../shared/Footer';
 import './style.scss';
 
 const BlogPage = () => {
     return(
-        <h1>Hello from BlogPage</h1>
+        <>
+            <Footer />
+        </>
     );
 }
 

@@ -3,6 +3,9 @@ import style from './style.module.scss';
 import { useSelector } from 'react-redux'; // import redux for state
 import { filterByPrice, filterBySize, filterByBrand } from '../../actions';
 // Components
+import Banner from '../../shared/Banner';
+import Footer from '../../shared/Footer';
+import banners from '../../assets/data/banners';
 import ProductItem from '../../shared/ProductItem/component';
 import FilterButtons from '../../shared/Filters/components';
 import productFilters from '../../assets/data/productFilters';
@@ -29,49 +32,58 @@ const ShopPage = () => {
         );
     }), [products]);
     return(
-        <section className={style.shopProducts_section}>
-            <div className={style.shopProducts_left}>
-                <div className={style.productsFilters}>
-                    <h4>Brand</h4>
-                    {brandFilters.map(item => {
-                        return (
-                            <FilterButtons
-                                reduxAction={filterByBrand}
-                                payload={item.brand}
-                                active={item.active}
-                            />
-                        );
-                    })}
+        <>
+            <Banner 
+                bannerTitle={banners[0].title}
+                bannerText={banners[0].text}
+                bannerImg={banners[0].img}
+                buttonLink={banners[0].link}
+            />
+            <section className={style.shopProducts_section}>
+                <div className={style.shopProducts_left}>
+                    <div className={style.productsFilters}>
+                        <h4>Brand</h4>
+                        {brandFilters.map(item => {
+                            return (
+                                <FilterButtons
+                                    reduxAction={filterByBrand}
+                                    payload={item.brand}
+                                    active={item.active}
+                                />
+                            );
+                        })}
+                    </div>
+                    <div className={style.productsFilters}>
+                        <h4>Price</h4>
+                        {priceFilters.map(item => {
+                            return (
+                                <FilterButtons
+                                    reduxAction={filterByPrice}
+                                    payload={item.price}
+                                    active={item.active}
+                                />
+                            );
+                        })}
+                    </div>
+                    <div className={style.productsFilters}>
+                        <h4>Size (UK)</h4>
+                        {sizeFilters.map(item => {
+                            return (
+                                <FilterButtons
+                                    reduxAction={filterBySize}
+                                    payload={item.size}
+                                    active={item.active}
+                                />
+                            );
+                        })}
+                    </div>
                 </div>
-                <div className={style.productsFilters}>
-                    <h4>Price</h4>
-                    {priceFilters.map(item => {
-                        return (
-                            <FilterButtons
-                                reduxAction={filterByPrice}
-                                payload={item.price}
-                                active={item.active}
-                            />
-                        );
-                    })}
+                <div className={style.shopProducts_right}>
+                    {renderProductItems}
                 </div>
-                <div className={style.productsFilters}>
-                    <h4>Size (UK)</h4>
-                    {sizeFilters.map(item => {
-                        return (
-                            <FilterButtons
-                                reduxAction={filterBySize}
-                                payload={item.size}
-                                active={item.active}
-                            />
-                        );
-                    })}
-                </div>
-            </div>
-            <div className={style.shopProducts_right}>
-                {renderProductItems}
-            </div>
-        </section>
+            </section>
+            <Footer />
+        </>
     );
 }
 

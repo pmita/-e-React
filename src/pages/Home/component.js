@@ -1,9 +1,20 @@
 import React from 'react';
+import Banner from '../../shared/Banner';
+import Footer from '../../shared/Footer/component';
+import banners from '../../assets/data/banners';
 import './style.scss';
 
 const HomePage = () => {
     return(
-        <h1>Hello from Home page</h1>
+        <>
+            <Banner
+                bannerTitle={banners[1].title}
+                bannerText={banners[1].text}
+                bannerImg={banners[1].img}
+                buttonLink={banners[1].link}
+            />
+            <Footer />
+        </>
     );
 }
 

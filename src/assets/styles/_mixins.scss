@@ -5,3 +5,9 @@
     justify-content: $justify;
     align-items: $align;
 }
+
+@mixin imgSizing($width, $height, $fit){
+    width: $width;
+    height: $height;
+    object-fit: $fit;
+}
