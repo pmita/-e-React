@@ -1,49 +1,33 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import style from './style.module.scss';
 import { useSelector } from 'react-redux'; // import redux for state
 import { filterByPrice, filterBySize, filterByBrand } from '../../actions';
 // Components
 import ProductItem from '../../shared/ProductItem/component';
 import FilterButtons from '../../shared/Filters/components';
+import productFilters from '../../assets/data/productFilters';
 
 const ShopPage = () => {
-    // state from Redux
-    const products = useSelector(state => state.womenProducts.productsFiltered);
+    // define our variablers & state
+    const products = useSelector(state => state.womenProducts.productsFiltered); // state from Redux
+    const {brandFilters, priceFilters, sizeFilters} = productFilters; // filters from our utilities
 
-    // product filter variables
-    const brandFilters = [
-        {brand : 'BARDOT', active : true},
-        {brand : 'COOPER', active : false},
-        {brand : 'ALFANI', active : false},
-        {brand : 'TEST', active : false},
-    ]
-    const priceFilters = [
-        {price : 'ascending', active : true},
-        {price : 'descending', active : false},
-    ]
-    const sizeFilters = [
-        {size : 'S', active : true},
-        {size : 'M', active : false},
-        {size : 'L', active : false},
-        {size : 'XL', active : false},
-    ]
-
-    const renderProductItems = products.map(item => {
+    const renderProductItems = useMemo(() => products.map(item => {
         return (
-        <ProductItem 
-            key={item.id}
-            title={item.title}
-            price={item.price}
-            brand={item.brand}
-            details={item.details}
-            advantages={item.advantages}
-            sizes={item.sizes}
-            img={item.img}
-            gender={item.gender}
-            id={item.id}
-        />
+            <ProductItem 
+                key={item.id}
+                title={item.title}
+                price={item.price}
+                brand={item.brand}
+                details={item.details}
+                advantages={item.advantages}
+                sizes={item.sizes}
+                img={item.img}
+                gender={item.gender}
+                id={item.id}
+            />
         );
-    });
+    }), [products]);
     return(
         <section className={style.shopProducts_section}>
             <div className={style.shopProducts_left}>
