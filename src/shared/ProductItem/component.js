@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addToFavourites } from '../../actions';
 import './style.scss';
 
 const ProductItem = ({
@@ -13,6 +15,11 @@ const ProductItem = ({
     gender,
     id
 }) => {
+
+    // state from redux
+    // const productsFavourites = useSelector(state => state.womenProducts.productsFavourites);
+    const dispatch = useDispatch();
+
     return(
         <div className='productItem_section'>
             <img src={img} alt='product images' />
@@ -25,7 +32,11 @@ const ProductItem = ({
                     );
                 })}
             </ul>
-            <button>Love</button>
+            <button
+                onClick={() => dispatch(addToFavourites(id))}
+            >
+                Love
+            </button>
         </div>
     );
 }

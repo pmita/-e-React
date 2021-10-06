@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux'; //import our state from redux
 import './style.scss';
-// import our assets
-import logo from '../../assets/images/crispLogo.png';
+import logo from '../../assets/images/crispLogo.png'; // import our assets
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
     // define our state
     const [searchInpuy, setSearchInput] = useState('');
+    const productsFavourites = useSelector(state => state.womenProducts.productsFavourites);
 
     // define our useEffect actions
     const changeTextHandler = (e) => {
@@ -40,7 +41,12 @@ const Navigation = () => {
                     <Link to='/'>Saved</Link>
                 </li>
                 <li>
-                    <Link to='/'>Basket</Link>
+                    <Link 
+                        className='basketItems'
+                        to='/'
+                    >
+                        Basket <span>{productsFavourites.length}</span>
+                    </Link>
                 </li>
             </ul>
         </nav>

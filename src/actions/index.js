@@ -21,9 +21,10 @@ export const filterByBrand = filterOption => {
 };
 
 // favourites actions
-export const addToFavourites = () => {
+export const addToFavourites = (id) => {
     return {
-        type : 'ADD_TO_FAVOURITES'
+        type : 'ADD_TO_FAVOURITES',
+        payload : id
     };
 };
 
