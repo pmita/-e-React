@@ -7,7 +7,7 @@ import Banner from '../../shared/Banner';
 import Footer from '../../shared/Footer';
 import banners from '../../assets/data/banners';
 import ProductItem from '../../shared/ProductItem/component';
-import FilterButtons from '../../shared/Filters/components';
+import Filters from '../../shared/Filters/components';
 import productFilters from '../../assets/data/productFilters';
 
 const ShopPage = () => {
@@ -45,7 +45,7 @@ const ShopPage = () => {
                         <h4>Brand</h4>
                         {brandFilters.map(item => {
                             return (
-                                <FilterButtons
+                                <Filters
                                     reduxAction={filterByBrand}
                                     payload={item.brand}
                                     active={item.active}
@@ -57,7 +57,7 @@ const ShopPage = () => {
                         <h4>Price</h4>
                         {priceFilters.map(item => {
                             return (
-                                <FilterButtons
+                                <Filters
                                     reduxAction={filterByPrice}
                                     payload={item.price}
                                     active={item.active}
@@ -69,7 +69,7 @@ const ShopPage = () => {
                         <h4>Size (UK)</h4>
                         {sizeFilters.map(item => {
                             return (
-                                <FilterButtons
+                                <Filters
                                     reduxAction={filterBySize}
                                     payload={item.size}
                                     active={item.active}

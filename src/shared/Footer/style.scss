@@ -6,9 +6,10 @@
 footer{
     min-height: 50vh;
     width: 100%;
+    padding: 2rem;
     background: $black;
     color: $white;
-    @include flex(column, flex-start, flex-start);
+    @include flex(column, space-between, flex-start);
 }
 
 .footerSection{
