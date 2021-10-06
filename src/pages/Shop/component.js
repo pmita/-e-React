@@ -1,15 +1,14 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import style from './style.module.scss';
-import { useSelector, useDispatch } from 'react-redux'; // import redux for state
+import { useSelector } from 'react-redux'; // import redux for state
 import { filterByPrice, filterBySize, filterByBrand } from '../../actions';
-// import our components
+// Components
 import ProductItem from '../../shared/ProductItem/component';
+import FilterButtons from '../../shared/Filters/components';
 
 const ShopPage = () => {
     // state from Redux
     const products = useSelector(state => state.womenProducts.productsFiltered);
-    const dispatch = useDispatch();
 
     // product filter variables
     const brandFilters = [
@@ -52,12 +51,11 @@ const ShopPage = () => {
                     <h4>Brand</h4>
                     {brandFilters.map(item => {
                         return (
-                            <button 
-                                className={item.active ? `${style.btn_filter} ${style.active}` : `${style.btn_filter}`}
-                                onClick={() => dispatch(filterByBrand(item.brand))}
-                            >
-                                {item.brand}
-                            </button>
+                            <FilterButtons
+                                reduxAction={filterByBrand}
+                                payload={item.brand}
+                                active={item.active}
+                            />
                         );
                     })}
                 </div>
@@ -65,12 +63,11 @@ const ShopPage = () => {
                     <h4>Price</h4>
                     {priceFilters.map(item => {
                         return (
-                            <button 
-                                className={item.active ? `${style.btn_filter} ${style.active}` : `${style.btn_filter}`}
-                                onClick={() => dispatch(filterByPrice(item.price))}
-                            >
-                                {item.price}
-                            </button>
+                            <FilterButtons
+                                reduxAction={filterByPrice}
+                                payload={item.price}
+                                active={item.active}
+                            />
                         );
                     })}
                 </div>
@@ -78,12 +75,11 @@ const ShopPage = () => {
                     <h4>Size (UK)</h4>
                     {sizeFilters.map(item => {
                         return (
-                            <button 
-                                className={item.active ? `${style.btn_filter} ${style.active}` : `${style.btn_filter}`}
-                                onClick={() => dispatch(filterBySize(item.size))}
-                            >
-                                {item.size}
-                            </button>
+                            <FilterButtons
+                                reduxAction={filterBySize}
+                                payload={item.size}
+                                active={item.active}
+                            />
                         );
                     })}
                 </div>
