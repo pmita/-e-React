@@ -1,0 +1,8 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/global';
+
+.productsFilters{
+    width: 100%;
+    @include flex(column, flex-start, flex-start);
+}

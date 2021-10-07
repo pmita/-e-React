@@ -1,20 +1,18 @@
 import React, { useMemo } from 'react';
 import style from './style.module.scss';
-import { useSelector } from 'react-redux'; // import redux for state
-import { filterByPrice, filterBySize, filterByBrand } from '../../actions';
+import { useSelector } from 'react-redux'; // redux for state
 // Components
 import Banner from '../../shared/Banner';
 import Footer from '../../shared/Footer';
-import banners from '../../assets/data/banners';
 import ProductItem from '../../shared/ProductItem/component';
-import Filters from '../../shared/Filters/components';
-import productFilters from '../../assets/data/productFilters';
+import FilterContainer from '../../shared/FiltersContainer/component';
+import banners from '../../assets/data/banners';// import assets
 
 const ShopPage = () => {
-    // define our variablers & state
-    const products = useSelector(state => state.womenProducts.productsFiltered); // state from Redux
-    const {brandFilters, priceFilters, sizeFilters} = productFilters; // filters from our utilities
+    // variables and state
+    const products = useSelector(state => state.womenProducts.productsFiltered); 
 
+    // memoized components
     const renderProductItems = useMemo(() => products.map(item => {
         return (
             <ProductItem 
@@ -39,49 +37,14 @@ const ShopPage = () => {
                 bannerImg={banners[0].img}
                 buttonLink={banners[0].link}
             />
-            <section className={style.shopProducts_section}>
-                <div className={style.shopProducts_left}>
-                    <div className={style.productsFilters}>
-                        <h4>Brand</h4>
-                        {brandFilters.map(item => {
-                            return (
-                                <Filters
-                                    reduxAction={filterByBrand}
-                                    payload={item.brand}
-                                    active={item.active}
-                                />
-                            );
-                        })}
-                    </div>
-                    <div className={style.productsFilters}>
-                        <h4>Price</h4>
-                        {priceFilters.map(item => {
-                            return (
-                                <Filters
-                                    reduxAction={filterByPrice}
-                                    payload={item.price}
-                                    active={item.active}
-                                />
-                            );
-                        })}
-                    </div>
-                    <div className={style.productsFilters}>
-                        <h4>Size (UK)</h4>
-                        {sizeFilters.map(item => {
-                            return (
-                                <Filters
-                                    reduxAction={filterBySize}
-                                    payload={item.size}
-                                    active={item.active}
-                                />
-                            );
-                        })}
-                    </div>
-                </div>
-                <div className={style.shopProducts_right}>
+            <main className={style.shopProducts_section}>
+                <aside className={style.shopProducts_left}>
+                    <FilterContainer />
+                </aside>
+                <section className={style.shopProducts_right}>
                     {renderProductItems}
-                </div>
-            </section>
+                </section>
+            </main>
             <Footer />
         </>
     );
