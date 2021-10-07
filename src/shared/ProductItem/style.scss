@@ -5,7 +5,7 @@
 .productItem_section{
     width: 100%;
     height: 100%;
-    @include flex(column, space-between, flex-start);
+    @include flex(column, space-between, stretch);
     position: relative;
     img{
         height: 80%;
@@ -19,10 +19,7 @@
             font-weight: 800;
         }
     }
-    button{
-        position: absolute;
-        top: 5%;
-        left: 80%;
+    .btn{
         padding: 1rem 2rem;
         border: 2px solid $black;
         background: $black;
@@ -33,5 +30,10 @@
             background: $white;
             color: $black;
         }
+    }
+    .btn_favourites{
+        position: absolute;
+        top: 5%;
+        left: 80%;
     }
 }

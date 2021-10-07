@@ -20,11 +20,8 @@ const ShopPage = () => {
                 title={item.title}
                 price={item.price}
                 brand={item.brand}
-                details={item.details}
-                advantages={item.advantages}
                 sizes={item.sizes}
                 img={item.img}
-                gender={item.gender}
                 id={item.id}
             />
         );

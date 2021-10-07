@@ -5,7 +5,8 @@ import { filterItems } from '../assets/functions/utilFunctions';
 let initialState = {
     products : mockData,
     productsFiltered : mockData,
-    productsFavourites: []
+    productsFavourites: [],
+    cartItems : []
 }
 
 const womenProductsReducer = (state = initialState, action) => {
@@ -23,6 +24,9 @@ const womenProductsReducer = (state = initialState, action) => {
         case 'ADD_TO_FAVOURITES':
             const productsFavouritesUpdated = products.filter(item => item.id === action.payload);
             return {...state, productsFavourites : [...state.productsFavourites, productsFavouritesUpdated[0]]};
+        case 'ADD_TO_CART':
+            const addToCartProducts = products.filter(item => item.id === action.payload);
+            return {...state, cartItems : [...state.cartItems, addToCartProducts[0]]};
         default :
             return {...state};
     }

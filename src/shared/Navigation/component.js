@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useSelector } from 'react-redux'; //import our state from redux
 import './style.scss';
 import logo from '../../assets/images/crispLogo.png'; // import our assets
+import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
+// import { IoCartOutline } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
-    // define our state
+    // STATE & VARIABLES
     const [searchInpuy, setSearchInput] = useState('');
+    const itemsInCart = useSelector(state => state.womenProducts.cartItems);
     const productsFavourites = useSelector(state => state.womenProducts.productsFavourites);
 
-    // define our useEffect actions
-    const changeTextHandler = (e) => {
+    // EVENT HANDLERS
+    const changeTextHandler = useCallback((e) => {
         setSearchInput(e.target.value);
-    }
+    }, []);
+
     return(
-        <nav className='navigationSection'>
+        <nav>
             <Link to='/'>
                 <img id='logo' src={logo} alt='Crisp brand logo, white logo dark background' />
             </Link>
@@ -38,14 +42,19 @@ const Navigation = () => {
                     <Link to='/'>Create An Account</Link>
                 </li>
                 <li>
-                    <Link to='/'>Saved</Link>
+                    <Link 
+                        className='nav_absolute'
+                        to='/'
+                    >
+                        <AiOutlineHeart /> <span>{productsFavourites.length}</span>
+                    </Link>
                 </li>
                 <li>
                     <Link 
-                        className='basketItems'
+                        className='nav_absolute'
                         to='/'
                     >
-                        Basket <span>{productsFavourites.length}</span>
+                        <AiOutlineShoppingCart /> <span>{itemsInCart.length}</span>
                     </Link>
                 </li>
             </ul>
