@@ -52,7 +52,7 @@ const Navigation = () => {
                 <li>
                     <Link 
                         className='nav_absolute'
-                        to='/'
+                        to='/cart'
                     >
                         <AiOutlineShoppingCart /> <span>{itemsInCart.length}</span>
                     </Link>

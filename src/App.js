@@ -7,6 +7,7 @@ import BlogPage from './pages/Blog';
 import SalePage from './pages/Sale';
 import ShopPage from './pages/Shop';
 import ContactUsPage from './pages/ContactUs';
+import CartPage from './pages/Cart/component';
 // import everything react-router related
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/sale' component={SalePage} />
           <Route path='/shop' component={ShopPage} />
           <Route path='/contact' component={ContactUsPage} />
+          <Route path='/cart' component={CartPage} />
         </Switch>
       </div>
     </Router>

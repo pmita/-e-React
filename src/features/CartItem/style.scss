@@ -1,0 +1,38 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/global';
+@import '../../assets/styles/mixins';
+
+.cartItem{
+    @include flex(row, space-evenly, center);
+    img{
+        width: 25%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .cartItem_details{
+        padding: 0 1rem;
+        @include flex(column, flex-start, stretch);
+        div{
+            padding: 1rem 0;
+        }
+    }
+}
+
+.cartItem_quantity,
+.cartItem_actions{
+    @include flex(row, space-evenly, center);
+}
+
+.btnAction{
+    padding: 1rem 2rem;
+    margin-right: 1rem;
+    border: 2px solid $black;
+    background: $black;
+    color: $white;
+    cursor: pointer;
+    transition: $transition;
+    &:hover{
+        background: $white;
+        color: $black;
+    }
+}
