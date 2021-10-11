@@ -1,0 +1,45 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/global';
+
+
+footer{
+    min-height: 50vh;
+    width: 100%;
+    padding: 2rem;
+    background: $black;
+    color: $white;
+    @include flex(column, space-between, flex-start);
+}
+
+.footerSection{
+    width: 100%;
+    @include flex(row, space-between, flex-start);
+    flex-wrap: wrap;
+}
+
+.footerSection_grid{
+    flex: 1 1 20rem;
+}
+
+.footerSection_options{
+    @include flex(column, flex-start, flex-start);
+    a{
+        color: $white;
+        padding: 1rem 0;
+        transition: $transition;
+        &:hover{
+            opacity: 0.5;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .footerSection_grid{
+        text-align: center;
+    }
+
+    .footerSection_options{
+        @include flex(column, flex-start, center);
+    }
+}
