@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './style.scss';
+// ROUTER
+import { Link } from 'react-router-dom';
 
 const Banner = ({
     bannerTitle,

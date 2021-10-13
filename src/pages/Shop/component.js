@@ -1,12 +1,14 @@
 import React, { useMemo } from 'react';
 import style from './style.module.scss';
-import { useSelector } from 'react-redux'; // redux for state
-// Components
+// REDUX
+import { useSelector } from 'react-redux';
+// COMPONENTS
 import Banner from '../../shared/Banner';
 import Footer from '../../shared/Footer';
 import ProductItem from '../../shared/ProductItem/component';
 import FilterContainer from '../../shared/FiltersContainer/component';
-import banners from '../../assets/data/banners';// import assets
+// ASSETS
+import banners from '../../assets/data/banners';
 
 const ShopPage = () => {
     // variables and state

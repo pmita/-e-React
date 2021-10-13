@@ -6,14 +6,12 @@ export const filterByPrice = filterOption => {
         payload : filterOption
     };
 };
-
 export const filterBySize = filterOption => {
     return {
         type : actionTypes.FILTER_BY_SIZE,
         payload : filterOption
     };
 };
-
 export const filterByBrand = filterOption => {
     return {
         type : actionTypes.FILTER_BY_BRAND,

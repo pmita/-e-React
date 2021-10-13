@@ -11,8 +11,7 @@ let initialState = {
 }
 
 const womenProductsReducer = (state = initialState, action) => {
-    // eslint-disable-next-line no-unused-vars
-    const {products, filteredProducts, favourites, cart} = state;
+    const {products, favourites, cart} = state;
     switch (action.type){
         case actionTypes.FILTER_BY_PRICE:
             const productsInNewOrder = filterItems(action.payload, products);

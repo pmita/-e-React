@@ -1,8 +1,10 @@
 import React from 'react';
+import './style.scss';
+// COMPONENTS
 import Banner from '../../shared/Banner';
 import Footer from '../../shared/Footer/component';
+// ASSETS
 import banners from '../../assets/data/banners';
-import './style.scss';
 
 const HomePage = () => {
     return(

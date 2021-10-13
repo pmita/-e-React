@@ -1,10 +1,12 @@
 import React, { useState, useCallback } from 'react';
-import { useSelector } from 'react-redux'; //import our state from redux
 import './style.scss';
-import logo from '../../assets/images/crispLogo.png'; // import our assets
-import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
-// import { IoCartOutline } from 'react-icons/fa';
+// ROUTER
 import { Link } from 'react-router-dom';
+// REDUX
+import { useSelector } from 'react-redux'; 
+// ASSETS
+import logo from '../../assets/images/crispLogo.png'; 
+import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 
 const Navigation = () => {
     // STATE & VARIABLES

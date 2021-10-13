@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import './style.scss';
-import { AiOutlineHeart, AiOutlineClose } from 'react-icons/ai';
+// REDUX
 import { useDispatch } from 'react-redux';
 import { addToFavourites, incrementQuantity, decrementQuantity, removeFromCart } from '../../store/actions';
+// ASSETS
+import { AiOutlineHeart, AiOutlineClose } from 'react-icons/ai';
 
 const CartItem = ({product}) => {
     // PROPS
@@ -11,11 +13,11 @@ const CartItem = ({product}) => {
     // REDUX
     const dispatch = useDispatch();
 
-    // HANDLERS
-    const incrementItemHandler = () => dispatch(incrementQuantity(id));
-    const decrementItemHandler = () => dispatch(decrementQuantity(id));
-    const addToFavouritesHandler = () => dispatch(addToFavourites(id));
-    const removeItemHandler = () => dispatch(removeFromCart(id));
+    // EVENT HANDLERS
+    const incrementItemHandler = useCallback(() => dispatch(incrementQuantity(id)), [dispatch, id]);
+    const decrementItemHandler = useCallback(() => dispatch(decrementQuantity(id)), [dispatch, id]);
+    const addToFavouritesHandler = useCallback(() => dispatch(addToFavourites(id)), [dispatch, id]);
+    const removeItemHandler = useCallback(() => dispatch(removeFromCart(id)), [dispatch, id]);
 
     return (
         <div className='cartItem'>

@@ -1,14 +1,14 @@
 import './App.scss';
-// import our components
+// COMPONENTS
 import Navigation from './shared/Navigation/component';
-// import our Pages
+// PAGES
 import HomePage from './pages/Home';
 import BlogPage from './pages/Blog';
 import SalePage from './pages/Sale';
 import ShopPage from './pages/Shop';
 import ContactUsPage from './pages/ContactUs';
 import CartPage from './pages/Cart/component';
-// import everything react-router related
+// ROUTER
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {

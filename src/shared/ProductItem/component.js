@@ -1,16 +1,18 @@
+/* eslint-disable no-unused-vars */
 import React, { useCallback } from 'react';
+import './style.scss';
+// REDUX
 import { useDispatch } from 'react-redux';
 import { addToFavourites, addToCart } from '../../store/actions';
-import './style.scss';
 
 const ProductItem = ({product}) => {
     // PROPS
-    // eslint-disable-next-line no-unused-vars
     const {title, price, brand, details, advantages, sizes, img, gender, id} = product;
+
     // REDUX
     const dispatch = useDispatch();// dispatch for redux actions
 
-    // Our event handlers
+    // EVENT HANDLERS
     const addToFavouritesHandler = useCallback(() => dispatch(addToFavourites(id)), [dispatch, id]);
     const addToCartHandler = useCallback(() => dispatch(addToCart(id)), [dispatch, id]);
 

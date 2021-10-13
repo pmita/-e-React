@@ -1,6 +1,7 @@
 import React from 'react';
-import Footer from '../../shared/Footer';
 import './style.scss';
+// COMPONENTS
+import Footer from '../../shared/Footer';
 
 const ContactUsPage = () => {
     return(
