@@ -3,10 +3,9 @@
 @import '../../assets/styles/mixins';
 
 .cartSection{
-    min-height: 100vh;
     width: 100%;
     padding: 5rem 10rem;
-    @include flex(row, space-between, flex-start);
+    @include flex(row, flex-start, center);
 }
 
 .cartSection_products{
@@ -17,9 +16,16 @@
     gap: 1rem;
 }
 
+.cartSection_details{
+    flex: 1;
+    @include flex(column, flex-start, flex-start);
+}
+
+.cartSection_discounts,
 .cartSection_price{
     width: 100%;
-    flex: 1;
+    margin: 1rem;
+    padding: 2rem;
     @include flex(column, flex-start, stretch);
     background: $grey-light;
 }
