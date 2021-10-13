@@ -1,6 +1,6 @@
 import React from 'react';
 import Filters from './Filters'; // import components
-import { filterByPrice, filterBySize, filterByBrand } from '../../actions'; // actions for redux
+import { filterByPrice, filterBySize, filterByBrand } from '../../store/actions'; // actions for redux
 import productFilters from '../../assets/data/productFilters'; // import assets
 import style from './style.module.scss';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss';
 import { AiOutlineHeart, AiOutlineClose } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
-import { addToFavourites, incrementQuantity, decrementQuantity, removeFromCart } from '../../actions';
+import { addToFavourites, incrementQuantity, decrementQuantity, removeFromCart } from '../../store/actions';
 
 const CartItem = ({product}) => {
     // PROPS

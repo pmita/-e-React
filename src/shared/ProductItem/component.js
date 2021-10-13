@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { addToFavourites, addToCart } from '../../actions';
+import { addToFavourites, addToCart } from '../../store/actions';
 import './style.scss';
 
 const ProductItem = ({product}) => {
