@@ -5,15 +5,15 @@
 .cartSection{
     min-height: 100vh;
     width: 100%;
-    padding: 5rem 2rem;
+    padding: 5rem 10rem;
     @include flex(row, space-between, flex-start);
 }
 
 .cartSection_products{
     padding: 1rem;
     width: 100%;
-    flex: 3;
-    @include flex(column,space-between, center);
+    flex: 2;
+    @include flex(column,space-between, flex-start);
     gap: 1rem;
 }
 

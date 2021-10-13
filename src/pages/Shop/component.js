@@ -10,19 +10,14 @@ import banners from '../../assets/data/banners';// import assets
 
 const ShopPage = () => {
     // variables and state
-    const products = useSelector(state => state.womenProducts.productsFiltered); 
+    const products = useSelector(state => state.womenProducts.filteredProducts); 
 
     // memoized components
-    const renderProductItems = useMemo(() => products.map(item => {
+    const renderProductItems = useMemo(() => products.map(product => {
         return (
             <ProductItem 
-                key={item.id}
-                title={item.title}
-                price={item.price}
-                brand={item.brand}
-                sizes={item.sizes}
-                img={item.img}
-                id={item.id}
+                key={product.id}
+                product={product}
             />
         );
     }), [products]);

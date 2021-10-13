@@ -3,15 +3,11 @@ import { useDispatch } from 'react-redux';
 import { addToFavourites, addToCart } from '../../actions';
 import './style.scss';
 
-const ProductItem = ({
-    title,
-    price,
-    brand,
-    sizes,
-    img,
-    id
-}) => {
-    // redux
+const ProductItem = ({product}) => {
+    // PROPS
+    // eslint-disable-next-line no-unused-vars
+    const {title, price, brand, details, advantages, sizes, img, gender, id} = product;
+    // REDUX
     const dispatch = useDispatch();// dispatch for redux actions
 
     // Our event handlers
