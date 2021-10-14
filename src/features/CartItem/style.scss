@@ -23,6 +23,10 @@
     @include flex(row, space-evenly, center);
 }
 
+.cartItem_actions{
+    @include flex(row, center, center);
+}
+
 .btnAction{
     padding: 1rem 2rem;
     margin-right: 1rem;
@@ -54,5 +58,19 @@
     cursor: pointer;
     &:hover{
         opacity: 0.5;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .cartItem{
+        @include flex(column, flex-start, center);
+        img{
+            width: 100%;
+        }
+    }
+
+    .favouriteItem{
+        top: 5%;
+        left: 10%;
     }
 }

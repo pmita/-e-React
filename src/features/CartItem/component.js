@@ -4,7 +4,7 @@ import './style.scss';
 import { useDispatch } from 'react-redux';
 import { addToFavourites, incrementQuantity, decrementQuantity, removeFromCart } from '../../store/actions';
 // ASSETS
-import { AiOutlineHeart, AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineHeart } from 'react-icons/ai';
 
 const CartItem = ({product}) => {
     // PROPS
@@ -43,16 +43,16 @@ const CartItem = ({product}) => {
                 </div>
                 <div className='cartItem_actions'>
                     <button 
-                        className='btnAction'
+                        className='btnAction favouriteItem'
                         onClick={addToFavouritesHandler}
                     >
                         <AiOutlineHeart />
                     </button> 
                     <button 
-                        className='btnAction'
+                        className='removeItem'
                         onClick={removeItemHandler}
                     >
-                        <AiOutlineClose />
+                        Remove
                     </button> 
                 </div>
             </div>

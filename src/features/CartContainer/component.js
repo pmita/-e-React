@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './style.scss';
 import CartItem from '../CartItem/component';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { calculateTotal, applyDiscount } from '../../store/actions';
 
 const CartContainer = () => {
         // STATE & REDUX
         const cart = useSelector((state) => state.womenProducts.cart);
+        const total = useSelector((state) => state.womenProducts.total);
+        const dispatch = useDispatch();
+        const [input, setInput] = useState('');
+
+        // EVENT HANDLERS
+        const changeInputHandler = useCallback((e) => setInput(e.target.value), [setInput]);
+        const submitHanlder = useCallback((e) => e.preventDefault(), []);
+        const applyDiscountHandler = () => dispatch(applyDiscount(input));
+
+        // USEEFFECT
+        useEffect(() => {
+            dispatch(calculateTotal());
+        }, [cart, dispatch]);
 
     return (
         <>
@@ -24,13 +38,25 @@ const CartContainer = () => {
                     <aside className='cartSection_details'>
                         <div className='cartSection_discounts'>
                             <h2>Apply Discount Code</h2>
-                            <form>
-                                <input type='text' value='Enter discount code' />
-                                <button>APPLY DISCOUNT</button>
+                            <form onSubmit={submitHanlder}>
+                                <input 
+                                    type='text' 
+                                    name='discount'
+                                    placeholder='Enter discount'
+                                    value={input} 
+                                    onChange={changeInputHandler}   
+                                    required 
+                                />
+                                <button 
+                                    className='btn'
+                                    onClick={applyDiscountHandler}
+                                >
+                                    APPLY
+                                </button>
                             </form>
                         </div>
                         <div className='cartSection_price'>
-                            <h4>Subtotal 1000 $</h4>
+                            <h4>Subtotal {total} $</h4>
                             <h4>Tax</h4>
                             <h2>Order Total</h2>
                             <button className='btnAction'>PROCEED TO CHECKOUT</button>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // ASSETS
 import * as actionTypes from '../actions/actionTypes';
 import mockData from '../../assets/data/mockData';
@@ -7,11 +8,13 @@ let initialState = {
     products : mockData,
     filteredProducts : mockData,
     favourites: [],
-    cart : []
+    cart : [],
+    total : 0,
+    discountApplied : false
 }
 
 const womenProductsReducer = (state = initialState, action) => {
-    const {products, favourites, cart} = state;
+    const {products, favourites, cart, total, discountApplied} = state;
     switch (action.type){
         case actionTypes.FILTER_BY_PRICE:
             const productsInNewOrder = filterItems(action.payload, products);
@@ -48,6 +51,21 @@ const womenProductsReducer = (state = initialState, action) => {
             };
         case actionTypes.REMOVE_FROM_CART:
             return {...state, cart : cart.filter(item => item.id !== action.payload)}
+        case actionTypes.CALCULATE_TOTAL:
+            return {...state, total : cart.length
+                ? cart.reduce((acc, curr) => acc + Math.floor((curr.price * curr.qty)), 0)
+                : 0
+            };
+        case actionTypes.APPLY_DISCOUNT:
+            let totalUpdated, discountAppliedUpdated ;
+            if(action.payload === 'SAVE20' && !discountApplied){
+                totalUpdated = Math.floor(total * 0.2);
+                discountAppliedUpdated = true;
+            } else {
+                totalUpdated = total;
+                discountAppliedUpdated = false;
+            }
+            return {...state, total : totalUpdated, discountApplied : discountAppliedUpdated};
         default :
             return {...state};
     }

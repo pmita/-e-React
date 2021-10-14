@@ -52,4 +52,15 @@ export const removeFromCart = (id) => {
         payload : id
     };
 };
+export const calculateTotal = () => {
+    return {
+        type : actionTypes.CALCULATE_TOTAL
+    };
+};
+export const applyDiscount = (discountCode) => {
+    return {
+        type : actionTypes.APPLY_DISCOUNT,
+        payload : discountCode
+    };
+} ;
 
