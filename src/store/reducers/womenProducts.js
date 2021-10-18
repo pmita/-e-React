@@ -57,15 +57,13 @@ const womenProductsReducer = (state = initialState, action) => {
                 : 0
             };
         case actionTypes.APPLY_DISCOUNT:
-            let totalUpdated, discountAppliedUpdated ;
-            if(action.payload === 'SAVE20' && !discountApplied){
-                totalUpdated = Math.floor(total * 0.2);
-                discountAppliedUpdated = true;
+            if((action.payload === 'SAVE20' || action.payload === 'SUMMER') && !discountApplied){
+                const totalUpdated = Math.floor(total * 0.8);
+                const discountAppliedUpdated = true;
+                return {...state, total : totalUpdated, discountApplied : discountAppliedUpdated}
             } else {
-                totalUpdated = total;
-                discountAppliedUpdated = false;
+                return {...state};
             }
-            return {...state, total : totalUpdated, discountApplied : discountAppliedUpdated};
         default :
             return {...state};
     }
