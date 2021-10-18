@@ -1,28 +1,25 @@
 import React, { useMemo } from 'react';
 import style from './style.module.scss';
-import { useSelector } from 'react-redux'; // redux for state
-// Components
+// REDUX
+import { useSelector } from 'react-redux';
+// COMPONENTS
 import Banner from '../../shared/Banner';
 import Footer from '../../shared/Footer';
 import ProductItem from '../../shared/ProductItem/component';
 import FilterContainer from '../../shared/FiltersContainer/component';
-import banners from '../../assets/data/banners';// import assets
+// ASSETS
+import banners from '../../assets/data/banners';
 
 const ShopPage = () => {
     // variables and state
-    const products = useSelector(state => state.womenProducts.productsFiltered); 
+    const products = useSelector(state => state.womenProducts.filteredProducts); 
 
     // memoized components
-    const renderProductItems = useMemo(() => products.map(item => {
+    const renderProductItems = useMemo(() => products.map(product => {
         return (
             <ProductItem 
-                key={item.id}
-                title={item.title}
-                price={item.price}
-                brand={item.brand}
-                sizes={item.sizes}
-                img={item.img}
-                id={item.id}
+                key={product.id}
+                product={product}
             />
         );
     }), [products]);

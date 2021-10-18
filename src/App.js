@@ -1,13 +1,14 @@
 import './App.scss';
-// import our components
+// COMPONENTS
 import Navigation from './shared/Navigation/component';
-// import our Pages
+// PAGES
 import HomePage from './pages/Home';
 import BlogPage from './pages/Blog';
 import SalePage from './pages/Sale';
 import ShopPage from './pages/Shop';
 import ContactUsPage from './pages/ContactUs';
-// import everything react-router related
+import CartPage from './pages/Cart/component';
+// ROUTER
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/sale' component={SalePage} />
           <Route path='/shop' component={ShopPage} />
           <Route path='/contact' component={ContactUsPage} />
+          <Route path='/cart' component={CartPage} />
         </Switch>
       </div>
     </Router>

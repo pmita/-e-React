@@ -1,16 +1,18 @@
 import React, { useState, useCallback } from 'react';
-import { useSelector } from 'react-redux'; //import our state from redux
 import './style.scss';
-import logo from '../../assets/images/crispLogo.png'; // import our assets
-import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
-// import { IoCartOutline } from 'react-icons/fa';
+// ROUTER
 import { Link } from 'react-router-dom';
+// REDUX
+import { useSelector } from 'react-redux'; 
+// ASSETS
+import logo from '../../assets/images/crispLogo.png'; 
+import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 
 const Navigation = () => {
     // STATE & VARIABLES
     const [searchInpuy, setSearchInput] = useState('');
-    const itemsInCart = useSelector(state => state.womenProducts.cartItems);
-    const productsFavourites = useSelector(state => state.womenProducts.productsFavourites);
+    const cart = useSelector(state => state.womenProducts.cart);
+    const productsFavourites = useSelector(state => state.womenProducts.favourites);
 
     // EVENT HANDLERS
     const changeTextHandler = useCallback((e) => {
@@ -52,9 +54,9 @@ const Navigation = () => {
                 <li>
                     <Link 
                         className='nav_absolute'
-                        to='/'
+                        to='/cart'
                     >
-                        <AiOutlineShoppingCart /> <span>{itemsInCart.length}</span>
+                        <AiOutlineShoppingCart /> <span>{cart.length}</span>
                     </Link>
                 </li>
             </ul>

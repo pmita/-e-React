@@ -1,0 +1,76 @@
+@import '../../assets/styles/variables';
+@import '../../assets/styles/global';
+@import '../../assets/styles/mixins';
+
+.cartItem{
+    position: relative;
+    @include flex(row, space-evenly, center);
+    img{
+        width: 25%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .cartItem_details{
+        padding: 0 1rem;
+        @include flex(column, flex-start, stretch);
+        div{
+            padding: 1rem 0;
+        }
+    }
+}
+
+.cartItem_quantity{
+    @include flex(row, space-evenly, center);
+}
+
+.cartItem_actions{
+    @include flex(row, center, center);
+}
+
+.btnAction{
+    padding: 1rem 2rem;
+    margin-right: 1rem;
+    border: 2px solid $black;
+    background: $black;
+    color: $white;
+    cursor: pointer;
+    transition: $transition;
+    &:hover{
+        background: $white;
+        color: $black;
+    }
+}
+
+.favouriteItem{
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+}
+
+.removeItem{
+    padding: 1rem 2rem;
+    outline: none;
+    border: none;
+    text-decoration: underline;
+    background: $white;
+    color: $black;
+    transition: $transition;
+    cursor: pointer;
+    &:hover{
+        opacity: 0.5;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .cartItem{
+        @include flex(column, flex-start, center);
+        img{
+            width: 100%;
+        }
+    }
+
+    .favouriteItem{
+        top: 5%;
+        left: 10%;
+    }
+}

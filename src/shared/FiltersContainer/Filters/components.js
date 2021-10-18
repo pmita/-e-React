@@ -1,16 +1,17 @@
 import React, { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
 import style from './style.module.scss';
+// REDUX
+import { useDispatch } from 'react-redux';
 
 const FilterButtons = ({
     reduxAction,
     payload,
     active
 }) => {
-
+    // REDUX
     const dispatch = useDispatch();
 
-    // define our handlers
+    // EVENT HANDLERS
     const dispatchReduxHandler = useCallback(() => dispatch(reduxAction(payload)),[dispatch, reduxAction, payload]);
     return(
         <button 

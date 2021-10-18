@@ -1,8 +1,10 @@
 import React from 'react';
+import './style.scss';
+// COMPONENT
 import Banner from '../../shared/Banner';
 import Footer from '../../shared/Footer';
+// ASSETS
 import banners from '../../assets/data/banners';
-import './style.scss';
 
 const SalePage = () => {
     return(

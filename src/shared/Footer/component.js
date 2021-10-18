@@ -1,9 +1,10 @@
 import React, { useMemo } from 'react';
-// import assets
+import './style.scss';
+// ROUTER
+import { Link } from 'react-router-dom';
+// ASSETS
 import footerInfo from '../../assets/data/footerInfo';
 import logo from '../../assets/images/crispLogo.png';
-import { Link } from 'react-router-dom';
-import './style.scss';
 
 const Footer = () => {
 
